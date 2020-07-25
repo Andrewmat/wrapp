@@ -16,7 +16,6 @@ afterAll(() => {
   console.error = originalConsoleError;
 });
 beforeEach(() => {
-  console.error = () => undefined;
   setWrappers({
     redux: createReduxWrapper,
     theme: createThemeWrapper
@@ -29,6 +28,7 @@ afterEach(() => {
 });
 
 test("component breaks if rendered without wrapper", () => {
+  console.error = () => undefined;
   expect(() => {
     render(<ThemeComponent />);
   }).toThrowError();
