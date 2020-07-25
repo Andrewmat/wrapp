@@ -90,6 +90,6 @@ test("uses utils", () => {
   const current = screen.getByTestId("current-redux");
   expect(current).toHaveValue();
 
-  utils.redux.getDispatch()(merge({ e: "e" }));
+  utils.redux.dispatch(merge({ e: "e" }));
   expect(current).toHaveValue(JSON.stringify({ e: "e" }));
 });
